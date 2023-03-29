@@ -30,12 +30,17 @@ namespace AFewDragons.DragonSound
 
         public void Play(Vector3 position)
         {
-            Play(new SoundOptions { Position = position });
+            SoundManager.PlaySound(this, null, position);
         }
 
         public void Play(SoundOptions options)
         {
             SoundManager.PlaySound(this, options);
+        }
+
+        public void Play(SoundOptions options, Vector3 position)
+        {
+            SoundManager.PlaySound(this, options, position);
         }
     }
 }
