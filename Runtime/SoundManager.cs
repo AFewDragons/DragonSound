@@ -41,7 +41,9 @@ namespace AFewDragons.DragonSound
 
         public static void PlaySound(SoundProfile profile, SoundOptions options)
         {
+            PlaySound(profile, options, Vector3.zero);
         }
+
         public static void PlaySound(SoundProfile profile, SoundOptions options, Vector3 position)
         {
             var audioSource = instance.GetSource();
@@ -68,6 +70,11 @@ namespace AFewDragons.DragonSound
             if(profile.SpatialBlend > 0)
             {
                 audioSource.SetCustomCurve(AudioSourceCurveType.CustomRolloff, profile.VolumeBlend);
+                audioSource.spread = profile.Spread3dSound ? 180 : 0;
+            }
+            else
+            {
+                audioSource.spread = 0;
             }
 
             if(options != null)

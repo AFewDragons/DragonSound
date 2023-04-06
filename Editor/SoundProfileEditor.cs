@@ -6,6 +6,7 @@ using UnityEditor;
 namespace AFewDragons.DragonSound
 {
     [CustomEditor(typeof(SoundProfile))]
+    [CanEditMultipleObjects]
     public class SoundProfileEditor : Editor
     {
         private SerializedProperty clipsProperty;
@@ -13,10 +14,10 @@ namespace AFewDragons.DragonSound
         private SerializedProperty volumeProperty;
         private SerializedProperty spatialBlendProperty;
 
-
         private SerializedProperty minDistanceProperty;
         private SerializedProperty maxDistanceProperty;
         private SerializedProperty volumeBlendProperty;
+        private SerializedProperty spreadProperty;
 
         private bool curveFoldout = false;
 
@@ -30,6 +31,8 @@ namespace AFewDragons.DragonSound
             maxDistanceProperty = serializedObject.FindProperty("MaxDistance");
             spatialBlendProperty = serializedObject.FindProperty("SpatialBlend");
             volumeBlendProperty = serializedObject.FindProperty("VolumeBlend");
+            spreadProperty = serializedObject.FindProperty("Spread3dSound");
+
         }
 
         public override void OnInspectorGUI()
@@ -54,6 +57,7 @@ namespace AFewDragons.DragonSound
                     Rect volumeRect = new Rect(minDistanceProperty.floatValue, 0, maxDistanceProperty.floatValue, volumeProperty.floatValue);
 
                     EditorGUILayout.CurveField(volumeBlendProperty, Color.red, volumeRect, new GUIContent("Volume Blend"));
+                    EditorGUILayout.PropertyField(spreadProperty);
                     EditorGUI.indentLevel--;
                 }
             }

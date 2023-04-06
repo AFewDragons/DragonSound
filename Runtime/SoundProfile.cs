@@ -20,8 +20,9 @@ namespace AFewDragons.DragonSound
         public float MaxDistance = 100;
         public AnimationCurve VolumeBlend = new AnimationCurve(new Keyframe[] {
             new Keyframe(0,1,0,0),
-            new Keyframe(1,0,0,0),
+            new Keyframe(100,0,0,0),
         });
+        public bool Spread3dSound = false;
 
         public void Play()
         {
