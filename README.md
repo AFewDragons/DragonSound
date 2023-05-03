@@ -2,7 +2,7 @@
 An enhanced sound framework for unity games
 
 [![Discord](https://img.shields.io/discord/686737735356252191.svg)](https://discord.gg/M7Gv6ER)
-[![GitHub issues](https://img.shields.io/github/issues/AFewDragons/GlobalState.svg)](https://github.com/AFewDragons/DragonSound/issues)
+[![GitHub issues](https://img.shields.io/github/issues/AFewDragons/DragonSound.svg)](https://github.com/AFewDragons/DragonSound/issues)
 [![GitHub Wiki](https://img.shields.io/badge/wiki-available-brightgreen.svg)](https://github.com/AFewDragons/DragonSound/wiki)
 
 Make sound profiles for your sounds and then use them anywhere.

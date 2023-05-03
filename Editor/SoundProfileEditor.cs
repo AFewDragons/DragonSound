@@ -54,7 +54,7 @@ namespace AFewDragons.DragonSound
                     EditorGUILayout.PropertyField(minDistanceProperty);
                     EditorGUILayout.PropertyField(maxDistanceProperty);
 
-                    Rect volumeRect = new Rect(minDistanceProperty.floatValue, 0, maxDistanceProperty.floatValue, volumeProperty.floatValue);
+                    Rect volumeRect = new Rect(0, 0, 1, 1);
 
                     EditorGUILayout.CurveField(volumeBlendProperty, Color.red, volumeRect, new GUIContent("Volume Blend"));
                     EditorGUILayout.PropertyField(spreadProperty);

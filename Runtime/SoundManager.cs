@@ -39,6 +39,11 @@ namespace AFewDragons.DragonSound
             return audio;
         }
 
+        public static void PlaySound(SoundProfile profile, Vector3 position)
+        {
+            PlaySound(profile, null, position);
+        }
+
         public static void PlaySound(SoundProfile profile, SoundOptions options)
         {
             PlaySound(profile, options, Vector3.zero);
@@ -67,22 +72,16 @@ namespace AFewDragons.DragonSound
             audioSource.maxDistance = options.MaxDistance ?? profile.MaxDistance;
             audioSource.minDistance = options.MinDistance ?? profile.MinDistance;
 
-            if(profile.SpatialBlend > 0)
+            if(audioSource.spatialBlend > 0)
             {
+                audioSource.rolloffMode = AudioRolloffMode.Custom;
                 audioSource.SetCustomCurve(AudioSourceCurveType.CustomRolloff, profile.VolumeBlend);
                 audioSource.spread = profile.Spread3dSound ? 180 : 0;
+                audioSource.transform.position = position;
             }
             else
             {
                 audioSource.spread = 0;
-            }
-
-            if(options != null)
-            {
-                if(profile.SpatialBlend > 0)
-                {
-                    audioSource.transform.position = position;
-                }
             }
 
             audioSource.Play();
@@ -96,10 +95,10 @@ namespace AFewDragons.DragonSound
 
     public class SoundOptions
     {
-        public float? Volume = 1;
-        public float? SpatialBlend = 1;
-        public float? Pitch = 1;
-        public float? MinDistance = 0.5f;
-        public float? MaxDistance = 5;
+        public float? Volume = null;
+        public float? SpatialBlend = null;
+        public float? Pitch = null;
+        public float? MinDistance = null;
+        public float? MaxDistance = null;
     }
 }

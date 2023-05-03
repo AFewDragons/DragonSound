@@ -1,7 +1,7 @@
 {
     "name": "com.afewdragons.dragonsound",
     "description": "Dragon Sound is a framework on top of unity audio to provide extra features.",
-    "version": "0.1.0-preview",
+    "version": "0.1.1-preview",
     "unity": "2018.1",
     "displayName": "Dragon Sound",
 	"author": {
